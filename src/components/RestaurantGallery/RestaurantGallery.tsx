@@ -22,7 +22,6 @@ const RestaurantGallery :React.FC<RestaurantGalleryInterface>= ({searchText}) =>
       async function filterRestaurants(pageNo:number): Promise<void> {
         let postalCode= removeSpaces(searchText);
         const apiUrl = `http://localhost:3030/${postalCode}?page=${pageNo}&pageLimit=${PAGE_LIMIT}`;
-      
         try {
           const options: FetchOptions = {
             method: 'GET',
@@ -55,11 +54,16 @@ const RestaurantGallery :React.FC<RestaurantGalleryInterface>= ({searchText}) =>
     useEffect(()=>{
         filterRestaurants(pageNumber)
     },[pageNumber])
-  
+      console.log("searchText :",searchText)
       return (
-        <div className="restaurant-gallery-container">
+        <div >
+        
+          <div className="search-result-label">
+              <p>Results for postal code : <b> {searchText}</b>.</p>
+          </div>
+          <div className="restaurant-gallery-container">
             <div className="restaurant-gallery-subcontainer">
-                {restaurants&&restaurants.map((item, index) => (
+                {restaurants&&restaurants.length?restaurants.map((item, index) => (
                 <Card className="card" shadow="sm" key={index} isPressable onPress={() => console.log("item pressed")}>
                        <CardHeader >
                         <b>{item.name}</b>
@@ -88,7 +92,13 @@ const RestaurantGallery :React.FC<RestaurantGalleryInterface>= ({searchText}) =>
                         <p className="text-default-500">{item.price}</p>
                     </CardFooter>
                 </Card>
-            ))}
+            )):searchText&&searchText.length?  <div className="restaurant-unavailable-container">
+                  <Card>
+                    <CardBody>
+                      <p>We could not find any restaurant in {searchText}.</p>
+                    </CardBody>
+                  </Card>
+              </div>:null}
 
          
 
@@ -103,7 +113,8 @@ const RestaurantGallery :React.FC<RestaurantGalleryInterface>= ({searchText}) =>
                   updatePageNumber={(pageNumber)=>updatePageNumber(pageNumber)}
               />:null
                  }
-              </div>
+            </div>
+            </div>
         </div>
       );
 }

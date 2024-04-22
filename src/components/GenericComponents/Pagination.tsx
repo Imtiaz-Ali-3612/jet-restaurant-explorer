@@ -20,7 +20,7 @@ const PaginationComponent:React.FC<PaginationComponentInterface>=({total,current
   }: PaginationItemRenderProps<HTMLButtonElement>) => {
     if (value === PaginationItemType.NEXT) {
       return (
-        <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={()=>updatePageNumber(currentPage+1)}>
+        <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={()=>{onNext();updatePageNumber(currentPage+1)}}>
           <ChevronIcon className="rotate-180"  />
         </button>
       );
@@ -28,7 +28,7 @@ const PaginationComponent:React.FC<PaginationComponentInterface>=({total,current
 
     if (value === PaginationItemType.PREV) {
       return (
-        <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={()=>updatePageNumber(currentPage-1)}>
+        <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={()=>{onPrevious();updatePageNumber(currentPage-1)}}>
           <ChevronIcon />
         </button>
       );
