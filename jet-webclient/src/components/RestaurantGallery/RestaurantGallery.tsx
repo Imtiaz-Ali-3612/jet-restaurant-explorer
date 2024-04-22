@@ -4,6 +4,7 @@ import './RestaurantGallery.css'
 import {FetchOptions, fetchData} from '../../utils/services'
 import { StarRating } from "../GenericComponents/Start";
 import PaginationComponent from "../GenericComponents/Pagination";
+import { BACKEND_BASE_URL } from "../../utils/config";
 
 interface RestaurantGalleryInterface {
     searchText:string;
@@ -21,7 +22,7 @@ const RestaurantGallery :React.FC<RestaurantGalleryInterface>= ({searchText}) =>
       // Example usage of fetchData function
       async function filterRestaurants(pageNo:number): Promise<void> {
         let postalCode= removeSpaces(searchText);
-        const apiUrl = `http://localhost:3030/${postalCode}?page=${pageNo}&pageLimit=${PAGE_LIMIT}`;
+        const apiUrl = `${BACKEND_BASE_URL}/${postalCode}?page=${pageNo}&pageLimit=${PAGE_LIMIT}`;
         try {
           const options: FetchOptions = {
             method: 'GET',
