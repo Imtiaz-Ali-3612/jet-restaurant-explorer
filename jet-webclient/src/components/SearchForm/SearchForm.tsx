@@ -28,7 +28,6 @@ const SearchForm:React.FC<PostcodeInputProps> =({showSearch})=> {
     };
   
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-      console.log("handle input change")
       event.preventDefault()
       const inputValue = event.target.value;
       fetchSuggestions(inputValue);

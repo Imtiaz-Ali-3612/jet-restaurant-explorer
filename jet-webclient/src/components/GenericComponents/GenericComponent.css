@@ -18,3 +18,22 @@
   .active {
     background-color: #ff8000;
   }
+  
+.card {
+  margin: 10px;
+  width: 350px;
+}
+.rating_ {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  padding:10px;
+}
+.rating-icon {
+  margin: 3px;
+}
+.cuisine-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}

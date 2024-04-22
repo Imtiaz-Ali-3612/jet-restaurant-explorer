@@ -14,14 +14,10 @@
 .restaurant-gallery-subcontainer {
     display: flex;
     flex-direction: row;
-    width: 80vw;
+    width: 90vw;
     align-items: center;
     flex-wrap:wrap;
     padding-left: 20px;
-}
-.card {
-    margin: 10px;
-    width: 350px;
 }
 
 .pagination-container {
@@ -35,12 +31,14 @@
 }
 
 .search-result-label {
+    width: 30vw;
     background-color: #ff8000;
-    margin-left: 10vw;
-    margin-top: 10px;
-    margin-right: 30vw;
     text-align: left;
     padding: 20px;
     font-size: 20px;
     color: white;
+}
+.search-result-label-container{
+    justify-content: center;
+    display: flex ;
 }
