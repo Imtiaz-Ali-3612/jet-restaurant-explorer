@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.star-rating {
+    font-size: 2rem; /* Adjust star size as needed */
+  }
+  
+  .star {
+    display: inline-block;
+    cursor: pointer; /* Indicate interactivity */
+  }
+  
+  /* Style for unfilled stars */
+  .star:hover ~ .star, /* Light up following stars on hover */
+  .star.selected {
+    color: gold; /* Adjust color as desired */
+  }
+  .active {
+    background-color: #ff8000;
+  }

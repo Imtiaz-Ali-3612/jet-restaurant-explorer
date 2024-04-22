@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.restaurant-gallery-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+
+}
+.restaurant-gallery-subcontainer {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    align-items: center;
+    flex-wrap:wrap;
+    padding-left: 20px;
+}
+.card {
+    margin: 10px;
+    width: 350px;
+}
+
+.pagination-container {
+
+}
+.restaurant-unavailable-container {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    padding: 200px;
+}
+
+.search-result-label {
+    background-color: #ff8000;
+    margin-left: 10vw;
+    margin-top: 10px;
+    margin-right: 30vw;
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+}
