@@ -1,8 +1,9 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
-import {Input, Listbox, ListboxItem} from "@nextui-org/react";
+import React, { useState, ChangeEvent } from 'react';
+import {Input} from "@nextui-org/react";
 import {SearchIcon} from "../GenericComponents/SearchIcon";
 import './SearchForm.css'
 import {Button} from "@nextui-org/react";
+import { POSTAL_CODE_URL } from '../../utils/config';
 
 interface PostcodeInputProps {
     showSearch: (postcode: string) => void;
@@ -11,12 +12,9 @@ interface PostcodeInputProps {
 const SearchForm:React.FC<PostcodeInputProps> =({showSearch})=> {
     const [postcode, setPostcode] = useState<string>('');
     const [suggestions, setSuggestions] = useState<string[] | null>(null);
-  
- 
-  
-    const fetchSuggestions = async (inputValue:string) => {
+    const fetchSuggestions = async () => {
       try {
-        const response = await fetch(`https://api.postcodes.io/postcodes/${postcode}/autocomplete`);
+        const response = await fetch(`${POSTAL_CODE_URL}/${postcode}/autocomplete`);
         if (!response.ok) {
           throw new Error('Failed to fetch suggestions');
         }
@@ -30,11 +28,9 @@ const SearchForm:React.FC<PostcodeInputProps> =({showSearch})=> {
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
       event.preventDefault()
       const inputValue = event.target.value;
-      fetchSuggestions(inputValue);
-
+      fetchSuggestions();
       setPostcode(inputValue);
     };
-  
     const handleSelectSuggestion = (selectedPostcode: string) => {
       setPostcode(selectedPostcode);
       setSuggestions([]); // Clear suggestions after selection
@@ -47,7 +43,6 @@ const SearchForm:React.FC<PostcodeInputProps> =({showSearch})=> {
           <div className='search-bar'>
               <Input
                 label="Search a restaurant"
-                
                 radius="lg"
                 classNames={{
                   label: "text-black/50 dark:text-white/90",

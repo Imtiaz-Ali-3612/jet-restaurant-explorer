@@ -75,14 +75,12 @@ const RestaurantGallery :React.FC<RestaurantGalleryInterface>= ({searchText}) =>
                   </Card>
               </div>:null}
             </div>
-            <div
-                className="pagination-container"
-              >
+            <div className="pagination-container">
                  {
                   totalPages>1? <PaginationComponent total={totalPages}
-                  currentPage={pageNumber}
-                  updatePageNumber={(pageNumber)=>updatePageNumber(pageNumber)}
-              />:null
+                                      currentPage={pageNumber}
+                                        updatePageNumber={(pageNumber)=>updatePageNumber(pageNumber)}
+                                    />:null
                  }
             </div>
             </div>
