@@ -17,9 +17,10 @@ The application is developed with following technologies
 
 ## Running the Application
 
-Dockerfile for each module has been created to easily run and distribute the application, it contains all the required dependencies that application needs.
+Dockerfile for each module has been provided to easily run and distribute the application, it contains all the required dependencies that application needs.
 
 **Running with Docker**
+
 Make sure you to install docker
 
 - [Docker](https://docs.docker.com/get-docker/)
@@ -36,7 +37,7 @@ cd jet-restaurant-explorer
 docker-compose up
 ```
 
-**Running without Docker **
+**Running without Docker**
 
 make sure to have latest version of Node installed
 
@@ -61,7 +62,7 @@ npm run dev
 ## Features
 1. Search by postal code.
 2. Postal code suggestion.
-3. Pagination for number of restaurants retrieved.
+3. Pagination for large number of restaurants retrieved.
 
 
 ## Improvement
@@ -74,7 +75,7 @@ Application has provided basic interface to user and can be enhanced by followin
 
    i. The pagination is old styled it can be improved to let user see more options without clicking the page buttons by just scrolling.
    
-    ii. The post code suggestion user interface can be made better with design first approach.
+    ii. The post code suggestion user interface can be made better like on hover colors / option scroll with keyboard.
 
 6. To add more to user experiance.
 
