@@ -7,17 +7,19 @@ import { BACKEND_BASE_URL } from "../../utils/config";
 import { removeSpaces } from "../../utils/utils";
 import CustomCard from "../GenericComponents/Card";
 
-
+/* component takes search text and displays the search results */ 
 interface RestaurantGalleryInterface {
     searchText:string;
 }
 
 const PAGE_LIMIT = 12;
 const RestaurantGallery :React.FC<RestaurantGalleryInterface>= ({searchText}) =>{
+    /* initial restaurants are empty and fetched within useEffect */ 
     const [restaurants,setRestaurants] = useState([])
     const [pageNumber,updatePageNumber] = useState(1);
     const [totalPages,updateTotalPages] = useState(0)
 
+    // this will seach the post code in the restaurant
     async function filterRestaurants(pageNo:number): Promise<void> {
       const postalCode:string= removeSpaces(searchText);
       const apiUrl = `${BACKEND_BASE_URL}/restaurant/${postalCode}?page=${pageNo}&pageLimit=${PAGE_LIMIT}`;
@@ -46,10 +48,11 @@ const RestaurantGallery :React.FC<RestaurantGalleryInterface>= ({searchText}) =>
         console.error('Error fetching the data:', error);
       }
     }
-      
+    // if search text has changed from parent component the search results will be updated here
     useEffect(()=>{
         filterRestaurants(1)
     },[searchText])
+    // on change of page number the result is updated
     useEffect(()=>{
         filterRestaurants(pageNumber)
     },[pageNumber])
