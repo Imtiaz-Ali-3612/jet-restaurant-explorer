@@ -2,8 +2,14 @@
 
 JET RESTAURANT EXPLORER Application Integrates JET provided API to gather the restaurants in the given postal code and display the restaurants to user in user friendly and considering better user experiance.
 
-The application is developed with following technologies
 
+## APPLICATION USER INTERFACE 
+
+
+![image](https://github.com/Imtiaz-Ali-3612/jet-restaurant-explorer/assets/60825273/a7d7e55f-eddc-48dd-ac03-9d78b7703cbf)
+
+
+The application is developed with following technologies
 
 ## Technologies
 
@@ -81,7 +87,11 @@ Application has provided basic interface to user and can be enhanced by followin
 
     i. Search result can be put in new page to allow user share the search results by copying/forwarding the url of results.
 
-     ii. User past search queries can be stored to suggest user, as postal codes
+     ii. User past search queries can be stored to suggest user postal code to search.
+
+      iii. Auto suggestion to user about user's current postal code.
+
+   
    
 ## Considerations
 1. As the data available on API is only for UK, the postal code suggestion I developed also only suggest user about UKs postal codes.
