@@ -1,0 +1,20 @@
+version: '3'
+services:
+  jet-backend:
+    build: ./jet-webserver
+    ports:
+      - "3030:3030"
+    networks:
+      - jet-net
+
+  jet-frontend:
+    build: ./jet-webclient
+    ports:
+      - "3000:3000"
+    networks:
+      - jet-net
+    depends_on:
+          - jet-backend
+networks:
+  jet-net:
+    driver: bridge
