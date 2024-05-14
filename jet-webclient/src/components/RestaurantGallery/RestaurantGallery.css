@@ -3,42 +3,40 @@
 @tailwind utilities;
 
 .restaurant-gallery-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px;
-    flex-direction: column;
-    align-items: center;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
 }
 .restaurant-gallery-subcontainer {
-    display: flex;
-    flex-direction: row;
-    width: 90vw;
-    align-items: center;
-    flex-wrap:wrap;
-    padding-left: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 20px;
 }
 
 .pagination-container {
-
 }
 .restaurant-unavailable-container {
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    padding: 200px;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding: 200px;
 }
 
 .search-result-label {
-    width: 30vw;
-    background-color: #ff8000;
-    text-align: left;
-    padding: 20px;
-    font-size: 20px;
-    color: white;
+  width: 30vw;
+  background-color: #ff8000;
+  text-align: left;
+  padding: 20px;
+  font-size: 20px;
+  color: white;
 }
-.search-result-label-container{
-    justify-content: center;
-    display: flex ;
+.search-result-label-container {
+  justify-content: center;
+  display: flex;
 }

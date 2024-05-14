@@ -2,23 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 .star-rating {
-    font-size: 2rem; /* Adjust star size as needed */
-  }
-  
-  .star {
-    display: inline-block;
-    cursor: pointer; /* Indicate interactivity */
-  }
-  
-  /* Style for unfilled stars */
-  .star:hover ~ .star, /* Light up following stars on hover */
+  font-size: 2rem; /* Adjust star size as needed */
+}
+
+.star {
+  display: inline-block;
+  cursor: pointer; /* Indicate interactivity */
+}
+
+/* Style for unfilled stars */
+.star:hover ~ .star, /* Light up following stars on hover */
   .star.selected {
-    color: gold; /* Adjust color as desired */
-  }
-  .active {
-    background-color: #ff8000;
-  }
-  
+  color: gold; /* Adjust color as desired */
+}
+.active {
+  background-color: #ff8000;
+}
+
 .card {
   margin: 10px;
   width: 350px;
@@ -27,7 +27,7 @@
   display: flex;
   width: 100%;
   justify-content: end;
-  padding:10px;
+  padding: 10px;
 }
 .rating-icon {
   margin: 3px;
