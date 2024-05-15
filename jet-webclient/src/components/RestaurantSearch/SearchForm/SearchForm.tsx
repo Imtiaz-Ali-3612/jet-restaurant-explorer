@@ -1,9 +1,9 @@
 import React, { useState, ChangeEvent } from 'react';
 import { Input } from '@nextui-org/react';
-import { SearchIcon } from '../GenericComponents/SearchIcon';
+import { SearchIcon } from '../../GenericComponents/SearchIcon';
 import './SearchForm.css';
 import { Button } from '@nextui-org/react';
-import { POSTAL_CODE_URL } from '../../utils/config';
+import { POSTAL_CODE_URL } from '../../../utils/config';
 interface PostcodeInputProps {
   showSearch: (postcode: string) => void;
 }

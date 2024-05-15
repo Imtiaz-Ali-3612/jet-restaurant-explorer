@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import React from 'react';
-import SearchForm from './components/SearchForm/SearchForm';
+import SearchForm from './components/RestaurantSearch/SearchForm/SearchForm';
 import './App.css';
-import RestaurantGallery from './components/RestaurantGallery/RestaurantGallery';
+import RestaurantGallery from './components/RestaurantSearch/RestaurantGallery/RestaurantGallery';
 const App = () => {
   /* SEARCH INPUT */
   const [searchText, setSearchText] = useState('');

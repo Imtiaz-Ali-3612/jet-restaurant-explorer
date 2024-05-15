@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa6';
-import { Button, Card, CardBody, CardFooter, CardHeader, Image, Tooltip } from '@nextui-org/react';
+import { Button, Card, CardBody,  CardHeader, Image, Tooltip } from '@nextui-org/react';
 import './GenericComponent.css';
 import { CiLocationOn } from 'react-icons/ci';
 
@@ -44,9 +44,9 @@ const CustomCard: React.FC<CardInterface> = ({ restaurant }) => {
           <FaStar color="#ff8000" className="rating-icon" />
         </div>
         <div className="cuisine-container">
-          {restaurant.cuisines.map((cusine:CuisineInterface) => {
+          {restaurant.cuisines.map((cusine:CuisineInterface,index) => {
             return (
-              <div style={{ marginLeft: '3px', marginTop: '3px' }}>
+              <div key={index} style={{ marginLeft: '3px', marginTop: '3px' }}>
                 <Tooltip content="Cuisine">
                   <Button style={{ backgroundColor: '#ff8000' }}>{cusine.name}</Button>
                 </Tooltip>

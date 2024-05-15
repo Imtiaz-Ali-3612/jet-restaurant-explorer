@@ -5,7 +5,7 @@
 }
 
 .search-container {
-  background-image: url('../../assets/search-bg.jpg');
+  background-image: url('../../../assets/search-bg.jpg');
   background-size: cover;
   height: 30vh;
   width: 100vw;

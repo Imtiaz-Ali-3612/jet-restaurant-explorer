@@ -1,7 +1,7 @@
 // SearchComponent.test.tsx
 import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
-import SearchForm from '../../src/components/SearchForm/SearchForm';
+import SearchForm from '../../src/components/RestaurantSearch/SearchForm/SearchForm';
 import '@testing-library/jest-dom';
 
 // Mock the fetch function

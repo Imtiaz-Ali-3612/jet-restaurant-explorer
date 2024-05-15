@@ -1,28 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardBody } from '@nextui-org/react';
 import './RestaurantGallery.css';
-import { FetchOptions, fetchData } from '../../utils/services';
-import PaginationComponent from '../GenericComponents/Pagination';
-import { BACKEND_BASE_URL } from '../../utils/config';
-import { removeSpaces } from '../../utils/utils';
-import CustomCard from '../GenericComponents/Card';
+import { FetchOptions, fetchData } from '../../../utils/services';
+import PaginationComponent from '../../GenericComponents/Pagination';
+import { BACKEND_BASE_URL } from '../../../utils/config';
+import { removeSpaces } from '../../../utils/utils';
+import CustomCard from '../../GenericComponents/Card';
+import DropDown from '../../GenericComponents/DropDown';
 
 /* component takes search text and displays the search results */
 interface RestaurantGalleryInterface {
   searchText: string;
 }
+interface SortByInterface {
+  label:string;
+  value:string;
+}
 
 const PAGE_LIMIT = 12;
+
 const RestaurantGallery: React.FC<RestaurantGalleryInterface> = ({ searchText }) => {
   /* initial restaurants are empty and fetched within useEffect */
   const [restaurants, setRestaurants] = useState([]);
   const [pageNumber, updatePageNumber] = useState(1);
   const [totalPages, updateTotalPages] = useState(0);
-
+  const [sortBy,updateSortBy] = useState("")
+  const sortByList : SortByInterface [] = [{label:"Best Match",value:"bestmatch"},{label:"Ratings",value:"ratings"},{label:"Distance",value:"distance"},{label:"Reviews",value:"reviews"}]
+ 
   // this will search the post code in the restaurant
-  async function filterRestaurants(pageNo: number): Promise<void> {
+  const filterRestaurants= async(pageNo: number)=>{
     const postalCode: string = removeSpaces(searchText);
-    const apiUrl = `${BACKEND_BASE_URL}/restaurant/${postalCode}?page=${pageNo}&pageLimit=${PAGE_LIMIT}`;
+    console.log(" SORT BY : ",sortBy)
+    const apiUrl = `${BACKEND_BASE_URL}/restaurant/${postalCode}?page=${pageNo}&pageLimit=${PAGE_LIMIT}&sortBy=${sortBy}`; // sortby
     try {
       const options: FetchOptions = {
         method: 'GET',
@@ -55,7 +64,7 @@ const RestaurantGallery: React.FC<RestaurantGalleryInterface> = ({ searchText })
       updateTotalPages(0);
       updatePageNumber(1);
     }
-  }, [searchText]);
+  }, [searchText,sortBy]);
   // on change of page number the result is updated
   useEffect(() => {
     if (searchText && searchText.length) {
@@ -75,12 +84,16 @@ const RestaurantGallery: React.FC<RestaurantGalleryInterface> = ({ searchText })
               Results for postal code : <b> {searchText}</b>.
             </p>
           </div>
+          <div className='filter-results-dropdown'>
+              <DropDown options={sortByList} onSelect={updateSortBy}/>
+          </div>
         </div>
       ) : null}
       <div className="restaurant-gallery-container">
+      
         <div className="restaurant-gallery-subcontainer">
           {restaurants && restaurants.length ? (
-            restaurants.map((item, index) => <CustomCard restaurant={item} />)
+            restaurants.map((item, index) => <CustomCard key={index} restaurant={item} />)
           ) : searchText && searchText.length ? (
             <div className="restaurant-unavailable-container">
               <Card>
